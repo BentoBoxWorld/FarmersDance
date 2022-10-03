@@ -12,7 +12,7 @@ metrics: true
 repository: 'BentoBoxWorld/FarmersDance'
 # Icon of addon that will be displayed in Addon Manager.
 # Must use Material.values() with uppercase.
-icon: 'BONEMEAL'
+icon: 'BONE_MEAL'
 
 # List of addon authors.
 authors:
@@ -23,6 +23,6 @@ softdepend: [ ]
 
 # List of addon permissions
 permissions:
-  '[gamemode].twerkingplants':
-    description: Player can twerk for plants.
+  '[gamemode].farmersdance':
+    description: Player can dance near plants to increase their grow speed.
     default: true
