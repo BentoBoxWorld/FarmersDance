@@ -32,7 +32,7 @@ public class FarmersDanceAddon extends Addon
         super.onLoad();
 
         // Storing default configuration is simple. But be aware, you need
-        // @StoreAt(filename="config.yml", path="addons/Visits") in header of your Config file.
+        // @StoreAt(filename="config.yml", path="addons/FarmersDance") in header of your Config file.
         this.saveDefaultConfig();
 
         this.settings = new Config<>(this, Settings.class).loadConfigObject();
