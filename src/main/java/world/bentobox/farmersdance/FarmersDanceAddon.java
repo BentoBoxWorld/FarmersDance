@@ -7,8 +7,14 @@ package world.bentobox.farmersdance;
 
 
 import org.bukkit.Bukkit;
+import org.bukkit.event.Listener;
 
 import world.bentobox.bentobox.api.addons.Addon;
+import world.bentobox.bentobox.api.configuration.Config;
+import world.bentobox.farmersdance.configs.Settings;
+import world.bentobox.farmersdance.listeners.DancingHandler;
+import world.bentobox.farmersdance.listeners.FastDancingListener;
+import world.bentobox.farmersdance.listeners.LazyDancingListener;
 
 
 /**
@@ -24,6 +30,21 @@ public class FarmersDanceAddon extends Addon
     public void onLoad()
     {
         super.onLoad();
+
+        // Storing default configuration is simple. But be aware, you need
+        // @StoreAt(filename="config.yml", path="addons/Visits") in header of your Config file.
+        this.saveDefaultConfig();
+
+        this.settings = new Config<>(this, Settings.class).loadConfigObject();
+
+        if (this.settings == null)
+        {
+            // If we failed to load Settings then we should not enable addon.
+            // We can log error and set state to DISABLED.
+
+            this.logError("Farmers Dance settings could not load! Addon disabled.");
+            this.setState(State.DISABLED);
+        }
     }
 
 
@@ -43,6 +64,18 @@ public class FarmersDanceAddon extends Addon
             this.setState(State.DISABLED);
             return;
         }
+
+        // Choose which dancing mode is enabled.
+        if (this.settings.isLazyDancing())
+        {
+            this.dancingHandler = new LazyDancingListener(this);
+            this.registerListener((Listener) this.dancingHandler);
+        }
+        else
+        {
+            this.dancingHandler = new FastDancingListener(this);
+            this.registerListener((Listener) this.dancingHandler);
+        }
     }
 
 
@@ -60,6 +93,24 @@ public class FarmersDanceAddon extends Addon
     public void onReload()
     {
         super.onReload();
+
+
+        // onReload most of addons just need to reload configuration.
+        // If flags, listeners and handlers were set up correctly via Addon.class then
+        // they will be reloaded automatically.
+
+        this.settings = new Config<>(this, Settings.class).loadConfigObject();
+
+        // TODO: check and readd disabled addon list in addon manager.
+
+        if (this.settings == null)
+        {
+            // If we failed to load Settings then we should not enable addon.
+            // We can log error and set state to DISABLED.
+
+            this.logError("Farmers Dance settings could not load! Addon disabled.");
+            this.setState(State.DISABLED);
+        }
     }
 
 
@@ -69,5 +120,45 @@ public class FarmersDanceAddon extends Addon
     @Override
     public void onDisable()
     {
+        // Stop all running tasks.
+        this.dancingHandler.stopTasks();
     }
+
+
+    /**
+     * This method saves settings file from memory.
+     */
+    public void saveSettings()
+    {
+        if (this.settings != null)
+        {
+            new Config<>(this, Settings.class).saveConfigObject(this.settings);
+        }
+    }
+
+
+    /**
+     * This method returns the settings value.
+     *
+     * @return the value of settings.
+     */
+    public Settings getSettings()
+    {
+        return this.settings;
+    }
+
+
+// ---------------------------------------------------------------------
+// Section: Variables
+// ---------------------------------------------------------------------
+
+    /**
+     * Settings object contains
+     */
+    private Settings settings;
+
+    /**
+     * This stores currently active dancing handler.
+     */
+    private DancingHandler dancingHandler;
 }
