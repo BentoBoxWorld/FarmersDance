@@ -5,31 +5,31 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>world.bentobox</groupId>
-    <artifactId>twerkingplants</artifactId>
+    <artifactId>farmersdance</artifactId>
     <version>${revision}</version>
     <packaging>jar</packaging>
 
-    <name>TwerkingPlants</name>
+    <name>FarmersDance</name>
 
     <description>Twerk to make plants grow faster on your island!</description>
 
-    <url>https://github.com/BentoBoxWorld/TwerkingPlants</url>
+    <url>https://github.com/BentoBoxWorld/FarmersDance</url>
     <inceptionYear>2022</inceptionYear>
 
     <scm>
-        <connection>scm:git:https://github.com/BentoBoxWorld/TwerkingPlants.git</connection>
-        <developerConnection>scm:git:git@github.com:BentoBoxWorld/TwerkingPlants.git</developerConnection>
-        <url>https://github.com/BentoBoxWorld/TwerkingPlants</url>
+        <connection>scm:git:https://github.com/BentoBoxWorld/FarmersDance.git</connection>
+        <developerConnection>scm:git:git@github.com:BentoBoxWorld/FarmersDance.git</developerConnection>
+        <url>https://github.com/BentoBoxWorld/FarmersDance</url>
     </scm>
 
     <ciManagement>
         <system>jenkins</system>
-        <url>http://ci.codemc.io/job/BentoBoxWorld/job/TwerkingPlants</url>
+        <url>http://ci.codemc.io/job/BentoBoxWorld/job/FarmersDance</url>
     </ciManagement>
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/BentoBoxWorld/TwerkingPlants/issues</url>
+        <url>https://github.com/BentoBoxWorld/FarmersDance/issues</url>
     </issueManagement>
 
     <distributionManagement>

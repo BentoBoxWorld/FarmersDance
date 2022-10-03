@@ -1,7 +1,7 @@
 # Name of your addon that wil lbe used in displaying it.
-name: TwerkingPlants
+name: FarmersDance
 # Addon main class. This class should extend Addon.class
-main: world.bentobox.twerkingplants.TwerkingPlantsAddon
+main: world.bentobox.farmersdance.FarmersDanceAddon
 # Version of your addon. Can use maven variables.
 version: ${version}
 # API version allows to specify minimal BentoBox version for your addon.
@@ -9,7 +9,7 @@ api-version: 1.20.0
 # Allow to send metric about this addon usage.
 metrics: true
 # GitHub version check. Will work only for GitHub.
-repository: 'BentoBoxWorld/TwerkingPlants'
+repository: 'BentoBoxWorld/FarmersDance'
 # Icon of addon that will be displayed in Addon Manager.
 # Must use Material.values() with uppercase.
 icon: 'BONEMEAL'
@@ -22,4 +22,7 @@ authors:
 softdepend: [ ]
 
 # List of addon permissions
-permissions: []
+permissions:
+  '[gamemode].twerkingplants':
+    description: Player can twerk for plants.
+    default: true

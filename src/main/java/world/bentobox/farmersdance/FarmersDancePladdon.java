@@ -4,7 +4,7 @@
 //
 
 
-package world.bentobox.twerkingplants;
+package world.bentobox.farmersdance;
 
 
 import org.bukkit.plugin.java.annotation.dependency.Dependency;
@@ -22,11 +22,11 @@ import world.bentobox.bentobox.api.addons.Pladdon;
 @Plugin(name="Pladdon", version="1.0")
 @ApiVersion(ApiVersion.Target.v1_17)
 @Dependency(value = "BentoBox")
-public class TwerkingPlantsPladdon extends Pladdon
+public class FarmersDancePladdon extends Pladdon
 {
     @Override
     public Addon getAddon()
     {
-        return new TwerkingPlantsAddon();
+        return new FarmersDanceAddon();
     }
 }

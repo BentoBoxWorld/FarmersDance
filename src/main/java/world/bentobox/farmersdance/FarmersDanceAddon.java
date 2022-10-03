@@ -3,7 +3,7 @@
 // Copyright - 2022
 //
 
-package world.bentobox.twerkingplants;
+package world.bentobox.farmersdance;
 
 
 import org.bukkit.Bukkit;
@@ -14,7 +14,7 @@ import world.bentobox.bentobox.api.addons.Addon;
 /**
  * This is main Addon class. It allows to load it into BentoBox hierarchy.
  */
-public class TwerkingPlantsAddon extends Addon
+public class FarmersDanceAddon extends Addon
 {
     /**
      * Executes code when loading the addon. This is called before {@link #onEnable()}. This <b>must</b> be used to
