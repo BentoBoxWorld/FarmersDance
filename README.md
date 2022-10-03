@@ -1,6 +1,6 @@
-# Twerking Plants Addon
+# Farmers Dance Addon
 [![Discord](https://img.shields.io/discord/272499714048524288.svg?logo=discord)](https://discord.bentobox.world)
-[![Build Status](https://ci.codemc.io/buildStatus/icon?job=BentoBoxWorld/TwerkingPlants)](https://ci.codemc.io/job/BentoBoxWorld/job/TwerkingPlants/)
+[![Build Status](https://ci.codemc.io/buildStatus/icon?job=BentoBoxWorld/TwerkingPlants)](https://ci.codemc.io/job/BentoBoxWorld/job/FarmersDance/)
 
 Twerk to make plants grow faster on your island!
 
@@ -15,7 +15,9 @@ Twerk to make plants grow faster on your island!
 The main idea of the addon is to allow faster grow any plant on your island. 
 The main difference from TwerkingForTrees is that this addon should work on any growable plant, including cactus, pumpkin and mushrooms.
 
-More information you can find in addon Wiki Page: [TwerkingPlants Addon](https://docs.bentobox.world/en/latest/addons/TwerkingPlants/)
+More information you can find in addon Wiki Page: [Farmers Dance Addon](https://docs.bentobox.world/en/latest/addons/FarmersDance/)
+
+This addon is still in ALPHA. This is just an early preview.
 
 ## Compatibility
 
