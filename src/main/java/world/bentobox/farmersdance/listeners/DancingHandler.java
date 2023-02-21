@@ -18,13 +18,14 @@ import org.jetbrains.annotations.NotNull;
 import java.util.*;
 import java.util.function.Predicate;
 
+import world.bentobox.bentobox.api.flags.FlagListener;
 import world.bentobox.farmersdance.FarmersDanceAddon;
 
 
 /**
  * This is main class that will process dancing.
  */
-public abstract class DancingHandler
+public abstract class DancingHandler extends FlagListener
 {
     /**
      * Instantiates a new Dancing handler.
@@ -54,7 +55,7 @@ public abstract class DancingHandler
      * @param world World where dancing happens.
      * @param player The player who triggers dancing.
      */
-    protected void buildTask(World world, Player player)
+    protected void buildTask(final World world, final Player player)
     {
         boolean growSaplings = this.addon.getSettings().isGrowSaplings();
         boolean growCrops = this.addon.getSettings().isGrowCrops();
@@ -70,9 +71,9 @@ public abstract class DancingHandler
         boolean growChorusFlower = this.addon.getSettings().isGrowChorusFlower();
         boolean growBerries = this.addon.getSettings().isGrowBerries();
 
-        int xRange = this.addon.getSettings().getAffectRadius();
-        int zRange = this.addon.getSettings().getAffectRadius();
-        int yRange = this.addon.getSettings().getAffectHeight();
+        final int xRange = this.addon.getSettings().getAffectRadius();
+        final int zRange = this.addon.getSettings().getAffectRadius();
+        final int yRange = this.addon.getSettings().getAffectHeight();
 
         int numberOfRandomGens = this.addon.getSettings().getAffectedBlockCount();
 

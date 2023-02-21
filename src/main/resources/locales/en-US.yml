@@ -1,0 +1,11 @@
+protection:
+  flags:
+    FARMER_DANCE:
+      description: |-
+        &5 Toggle who can use
+        &5 dance on island to
+        &5 grow plants faster.
+      name: "Farmer Dance Protection"
+      hint: |-
+        &c You do not have rank to dance here.
+      icon: NETHERITE_HOE

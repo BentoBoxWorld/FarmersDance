@@ -87,6 +87,12 @@ public class FastDancingListener extends DancingHandler implements Listener
             return;
         }
 
+        if (!this.checkIsland(event, player, player.getLocation(), FarmersDanceAddon.FARMER_DANCE, true))
+        {
+            // Player is not allowed to dance on this island.
+            return;
+        }
+
         AtomicInteger danceMoves = this.dancingCounter.computeIfAbsent(player,
             uuid -> new AtomicInteger(1));
 

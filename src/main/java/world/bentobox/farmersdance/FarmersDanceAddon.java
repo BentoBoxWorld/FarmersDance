@@ -7,10 +7,14 @@ package world.bentobox.farmersdance;
 
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.event.Listener;
 
 import world.bentobox.bentobox.api.addons.Addon;
 import world.bentobox.bentobox.api.configuration.Config;
+import world.bentobox.bentobox.api.flags.Flag;
+import world.bentobox.bentobox.api.flags.clicklisteners.CycleClick;
+import world.bentobox.bentobox.managers.RanksManager;
 import world.bentobox.farmersdance.configs.Settings;
 import world.bentobox.farmersdance.listeners.DancingHandler;
 import world.bentobox.farmersdance.listeners.FastDancingListener;
@@ -151,6 +155,18 @@ public class FarmersDanceAddon extends Addon
 // ---------------------------------------------------------------------
 // Section: Variables
 // ---------------------------------------------------------------------
+
+    /**
+     * Protection flag for ability to dance on islands.
+     */
+    public static final Flag FARMER_DANCE = new Flag.Builder("FARMER_DANCE", Material.NETHERITE_HOE).
+        type(Flag.Type.PROTECTION).
+        defaultRank(RanksManager.MEMBER_RANK).
+        defaultSetting(false).
+        clickHandler(new CycleClick("FARMER_DANCE",
+            RanksManager.VISITOR_RANK,
+            RanksManager.OWNER_RANK)).
+        build();
 
     /**
      * Settings object contains

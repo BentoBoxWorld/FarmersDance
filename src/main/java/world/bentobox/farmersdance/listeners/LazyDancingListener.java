@@ -53,13 +53,19 @@ public class LazyDancingListener extends DancingHandler implements Listener
 
         if (player.isFlying())
         {
-            // Flying players are not twerking
+            // Flying players are not dancing
             return;
         }
 
         if (!player.hasPermission(this.addon.getPlugin().getIWM().getPermissionPrefix(world) + "farmersdance"))
         {
-            // Player does not have permission to twerk.
+            // Player does not have permission to dance.
+            return;
+        }
+
+        if (!this.checkIsland(event, player, player.getLocation(), FarmersDanceAddon.FARMER_DANCE, false))
+        {
+            // Player is not allowed to dance on this island.
             return;
         }
 
