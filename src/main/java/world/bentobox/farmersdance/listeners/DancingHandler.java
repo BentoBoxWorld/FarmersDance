@@ -229,7 +229,7 @@ public abstract class DancingHandler extends FlagListener
 
                     while (rootBlock.getRelative(BlockFace.DOWN).getType().equals(block.getType()))
                     {
-                        rootBlock = block.getRelative(BlockFace.DOWN);
+                        rootBlock = rootBlock.getRelative(BlockFace.DOWN);
                     }
 
                     int height = 1;
@@ -240,8 +240,7 @@ public abstract class DancingHandler extends FlagListener
                         height++;
                     }
 
-                    if (height < 4 &&
-                        Material.AIR.equals(rootBlock.getType()))
+                    if (height < 4 && Material.AIR.equals(rootBlock.getType()))
                     {
                         rootBlock.setBlockData(block.getType().createBlockData(), true);
                         this.spawnParticle(rootBlock.getLocation());
