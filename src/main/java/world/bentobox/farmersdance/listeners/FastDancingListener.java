@@ -75,9 +75,9 @@ public class FastDancingListener extends DancingHandler implements Listener
             return;
         }
 
-        if (player.isFlying())
+        if (player.isFlying() || player.isClimbing() || player.isInsideVehicle())
         {
-            // Flying players are not twerking
+            // Flying, climbing and riding vehicle are not dancing
             return;
         }
 

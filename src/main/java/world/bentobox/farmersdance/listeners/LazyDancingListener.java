@@ -51,21 +51,9 @@ public class LazyDancingListener extends DancingHandler implements Listener
             return;
         }
 
-        if (player.isFlying())
+        if (player.isFlying() || player.isClimbing() || player.isInsideVehicle())
         {
-            // Flying players are not dancing
-            return;
-        }
-
-        if (!player.hasPermission(this.addon.getPlugin().getIWM().getPermissionPrefix(world) + "farmersdance"))
-        {
-            // Player does not have permission to dance.
-            return;
-        }
-
-        if (!this.checkIsland(event, player, player.getLocation(), FarmersDanceAddon.FARMER_DANCE, false))
-        {
-            // Player is not allowed to dance on this island.
+            // Flying, climbing and riding vehicle are not dancing
             return;
         }
 
@@ -79,6 +67,18 @@ public class LazyDancingListener extends DancingHandler implements Listener
             }
 
             // This is unshifting.
+            return;
+        }
+
+        if (!player.hasPermission(this.addon.getPlugin().getIWM().getPermissionPrefix(world) + "farmersdance"))
+        {
+            // Player does not have permission to dance.
+            return;
+        }
+
+        if (!this.checkIsland(event, player, player.getLocation(), FarmersDanceAddon.FARMER_DANCE, false))
+        {
+            // Player is not allowed to dance on this island.
             return;
         }
 
