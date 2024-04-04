@@ -40,6 +40,7 @@ public class FarmersDanceAddon extends Addon
         this.saveDefaultConfig();
 
         this.settings = new Config<>(this, Settings.class).loadConfigObject();
+        this.saveSettings();
 
         if (this.settings == null)
         {
