@@ -460,6 +460,50 @@ public class Settings implements ConfigObject
     }
 
 
+    /**
+     * Gets maximal cactus size.
+     *
+     * @return the maximal cactus size
+     */
+    public int getMaximalCactusSize()
+    {
+        return this.maximalCactusSize;
+    }
+
+
+    /**
+     * Sets maximal cactus size.
+     *
+     * @param maximalCactusSize the maximal cactus size
+     */
+    public void setMaximalCactusSize(int maximalCactusSize)
+    {
+        this.maximalCactusSize = maximalCactusSize;
+    }
+
+
+    /**
+     * Gets maximal sugar cane size.
+     *
+     * @return the maximal sugar cane size
+     */
+    public int getMaximalSugarCaneSize()
+    {
+        return this.maximalSugarCaneSize;
+    }
+
+
+    /**
+     * Sets maximal sugar cane size.
+     *
+     * @param maximalSugarCaneSize the maximal sugar cane size
+     */
+    public void setMaximalSugarCaneSize(int maximalSugarCaneSize)
+    {
+        this.maximalSugarCaneSize = maximalSugarCaneSize;
+    }
+
+
 // ---------------------------------------------------------------------
 // Section: Variables
 // ---------------------------------------------------------------------
@@ -602,4 +646,16 @@ public class Settings implements ConfigObject
     @ConfigComment("Default value = true.")
     @ConfigEntry(path = "groups.grow-berries")
     private boolean growBerries = true;
+
+    @ConfigComment("")
+    @ConfigComment("The maximal cactus size that it can grow to.")
+    @ConfigComment("Default value = 3.")
+    @ConfigEntry(path = "size.cactus-size")
+    private int maximalCactusSize = 3;
+
+    @ConfigComment("")
+    @ConfigComment("The maximal sugar cane size that it can grow to.")
+    @ConfigComment("Default value = 3.")
+    @ConfigEntry(path = "size.sugar-cane-size")
+    private int maximalSugarCaneSize;
 }

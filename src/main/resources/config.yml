@@ -105,3 +105,10 @@ groups:
   # Dancing near berries will produce berries.
   # Default value = true.
   grow-berries: true
+size:
+  # The maximal cactus size that it can grow to.
+  # Default value = 3.
+  cactus-size: 3
+  # The maximal sugar cane size that it can grow to.
+  # Default value = 3.
+  sugar-cane-size: 3

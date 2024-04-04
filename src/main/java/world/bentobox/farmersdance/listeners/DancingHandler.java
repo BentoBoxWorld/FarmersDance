@@ -234,13 +234,18 @@ public abstract class DancingHandler extends FlagListener
 
                     int height = 1;
 
-                    while (block.getType().equals(rootBlock.getType()) && height < 4)
+                    // Get max height based on block data.
+                    int maxHeight = Material.CACTUS.equals(block.getType()) ?
+                        this.addon.getSettings().getMaximalCactusSize() :
+                        this.addon.getSettings().getMaximalSugarCaneSize();
+
+                    while (block.getType().equals(rootBlock.getType()) && height < maxHeight)
                     {
                         rootBlock = rootBlock.getRelative(BlockFace.UP);
                         height++;
                     }
 
-                    if (height < 4 && Material.AIR.equals(rootBlock.getType()))
+                    if (height < maxHeight && Material.AIR.equals(rootBlock.getType()))
                     {
                         rootBlock.setBlockData(block.getType().createBlockData(), true);
                         this.spawnParticle(rootBlock.getLocation());
