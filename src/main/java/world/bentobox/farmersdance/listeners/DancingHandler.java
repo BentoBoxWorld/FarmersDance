@@ -233,7 +233,7 @@ public abstract class DancingHandler extends FlagListener
                         rootBlock = rootBlock.getRelative(BlockFace.DOWN);
                     }
 
-                    int height = 1;
+                    int height = 0;
 
                     // Get max height based on block data.
                     int maxHeight = Material.CACTUS.equals(block.getType()) ?
