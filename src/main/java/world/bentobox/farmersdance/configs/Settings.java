@@ -686,5 +686,5 @@ public class Settings implements ConfigObject
     @ConfigComment("The maximal sugar cane size that it can grow to.")
     @ConfigComment("Default value = 3.")
     @ConfigEntry(path = "size.sugar-cane-size")
-    private int maximalSugarCaneSize;
+    private int maximalSugarCaneSize = 3;
 }
