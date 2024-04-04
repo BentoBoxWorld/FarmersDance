@@ -168,7 +168,7 @@ public abstract class DancingHandler extends FlagListener
                     this.spawnParticle(block.getLocation());
                 }
             }
-            else if (Tag.TALL_FLOWERS.isTagged(block.getType()))
+            else if (Tag.TALL_FLOWERS.isTagged(block.getType()) || Material.PINK_PETALS.equals(block.getType()))
             {
                 if (growTallFlowers)
                 {
