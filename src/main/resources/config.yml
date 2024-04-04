@@ -82,7 +82,7 @@ groups:
   # Default value = true.
   grow-vines: true
   #
-  # Toggles if dancing will affect tall flowers.
+  # Toggles if dancing will affect tall flowers and pink petals.
   # It means that tall flowers will drop their item, like using bone meal.
   # Default value = true.
   grow-tall-flowers: true

@@ -636,7 +636,7 @@ public class Settings implements ConfigObject
     private boolean growVines = true;
 
     @ConfigComment("")
-    @ConfigComment("Toggles if dancing will affect tall flowers.")
+    @ConfigComment("Toggles if dancing will affect tall flowers and pink petals.")
     @ConfigComment("It means that tall flowers will drop their item, like using bone meal.")
     @ConfigComment("Default value = true.")
     @ConfigEntry(path = "groups.grow-tall-flowers")
