@@ -70,6 +70,7 @@ public abstract class DancingHandler extends FlagListener
         boolean growKelpAndDripLeaf = this.addon.getSettings().isGrowKelpAndDripLeaf();
         boolean growChorusFlower = this.addon.getSettings().isGrowChorusFlower();
         boolean growBerries = this.addon.getSettings().isGrowBerries();
+        boolean growSporeBlossom = this.addon.getSettings().isGrowSporeBlossom();
 
         final int xRange = this.addon.getSettings().getAffectRadius();
         final int zRange = this.addon.getSettings().getAffectRadius();
@@ -84,7 +85,7 @@ public abstract class DancingHandler extends FlagListener
         {
             Block block = world.getBlockAt(
                 location.getBlockX() + this.random.nextInt(xRange * 2 + 1) - xRange,
-                location.getBlockY() + this.random.nextInt(yRange * 2 + 1) - yRange,
+                (int) Math.round(location.getY()) + this.random.nextInt(yRange * 2 + 1) - yRange,
                 location.getBlockZ() + this.random.nextInt(zRange * 2 + 1) - zRange);
 
             if (Tag.SAPLINGS.isTagged(block.getType()) ||
@@ -349,6 +350,15 @@ public abstract class DancingHandler extends FlagListener
                         world.generateTree(block.getLocation(), TreeType.CHORUS_PLANT);
                         this.spawnParticle(block.getLocation());
                     }
+                }
+            }
+            else if (Material.SPORE_BLOSSOM.equals(block.getType()))
+            {
+                if (growSporeBlossom)
+                {
+                    // Apply bone meal to spore blossom
+                    block.getDrops().forEach(drop -> block.getWorld().dropItemNaturally(block.getLocation().add(0.5, 0.5, 0.5), drop));
+                    this.spawnParticle(block.getLocation());
                 }
             }
         }

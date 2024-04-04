@@ -461,6 +461,28 @@ public class Settings implements ConfigObject
 
 
     /**
+     * Is grow spore blossom boolean.
+     *
+     * @return the boolean
+     */
+    public boolean isGrowSporeBlossom()
+    {
+        return this.growSporeBlossom;
+    }
+
+
+    /**
+     * Sets grow spore blossom.
+     *
+     * @param growSporeBlossom the grow spore blossom
+     */
+    public void setGrowSporeBlossom(boolean growSporeBlossom)
+    {
+        this.growSporeBlossom = growSporeBlossom;
+    }
+
+
+    /**
      * Gets maximal cactus size.
      *
      * @return the maximal cactus size
@@ -646,6 +668,13 @@ public class Settings implements ConfigObject
     @ConfigComment("Default value = true.")
     @ConfigEntry(path = "groups.grow-berries")
     private boolean growBerries = true;
+
+    @ConfigComment("")
+    @ConfigComment("Toggles if dancing will affect spore blossoms.")
+    @ConfigComment("Dancing near spore blossoms will drop new spore blossom.")
+    @ConfigComment("Default value = false.")
+    @ConfigEntry(path = "groups.spore-blossoms")
+    private boolean growSporeBlossom = true;
 
     @ConfigComment("")
     @ConfigComment("The maximal cactus size that it can grow to.")
