@@ -13,9 +13,15 @@ import world.bentobox.bentobox.api.addons.Pladdon;
 
 public class FarmersDancePladdon extends Pladdon
 {
+
+    private FarmersDanceAddon addon;
+
     @Override
     public Addon getAddon()
     {
+        if (addon != null) {
+            addon = new FarmersDanceAddon();
+        }
         return new FarmersDanceAddon();
     }
 }
