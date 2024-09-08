@@ -55,7 +55,7 @@ public abstract class DancingHandler extends FlagListener
      * @param world World where dancing happens.
      * @param player The player who triggers dancing.
      */
-    protected void buildTask(final World world, final Player player)
+    protected void buildTask(final World world, final @NotNull Player player)
     {
         boolean growSaplings = this.addon.getSettings().isGrowSaplings();
         boolean growCrops = this.addon.getSettings().isGrowCrops();
@@ -143,7 +143,7 @@ public abstract class DancingHandler extends FlagListener
 
                         if (!blockList.isEmpty())
                         {
-                            Block newPlant = blockList.iterator().next();
+                            Block newPlant = blockList.getFirst();
 
                             if (Material.PUMPKIN_STEM.equals(block.getType()))
                             {
@@ -371,7 +371,7 @@ public abstract class DancingHandler extends FlagListener
      */
     private void spawnParticle(@NotNull Location location)
     {
-        Objects.requireNonNull(location.getWorld()).spawnParticle(Particle.VILLAGER_HAPPY,
+        Objects.requireNonNull(location.getWorld()).spawnParticle(Particle.HAPPY_VILLAGER,
             location.add(0.5, 0.5, 0.5),
             20,
             0.3D,
