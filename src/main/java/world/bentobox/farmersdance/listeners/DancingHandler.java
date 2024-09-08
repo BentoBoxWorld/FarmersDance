@@ -55,7 +55,7 @@ public abstract class DancingHandler extends FlagListener
      * @param world World where dancing happens.
      * @param player The player who triggers dancing.
      */
-    protected void buildTask(final World world, final Player player)
+    protected void buildTask(final World world, final @NotNull Player player)
     {
         boolean growSaplings = this.addon.getSettings().isGrowSaplings();
         boolean growCrops = this.addon.getSettings().isGrowCrops();
@@ -70,6 +70,7 @@ public abstract class DancingHandler extends FlagListener
         boolean growKelpAndDripLeaf = this.addon.getSettings().isGrowKelpAndDripLeaf();
         boolean growChorusFlower = this.addon.getSettings().isGrowChorusFlower();
         boolean growBerries = this.addon.getSettings().isGrowBerries();
+        boolean growSporeBlossom = this.addon.getSettings().isGrowSporeBlossom();
 
         final int xRange = this.addon.getSettings().getAffectRadius();
         final int zRange = this.addon.getSettings().getAffectRadius();
@@ -84,7 +85,7 @@ public abstract class DancingHandler extends FlagListener
         {
             Block block = world.getBlockAt(
                 location.getBlockX() + this.random.nextInt(xRange * 2 + 1) - xRange,
-                location.getBlockY() + this.random.nextInt(yRange * 2 + 1) - yRange,
+                (int) Math.round(location.getY()) + this.random.nextInt(yRange * 2 + 1) - yRange,
                 location.getBlockZ() + this.random.nextInt(zRange * 2 + 1) - zRange);
 
             if (Tag.SAPLINGS.isTagged(block.getType()) ||
@@ -142,7 +143,7 @@ public abstract class DancingHandler extends FlagListener
 
                         if (!blockList.isEmpty())
                         {
-                            Block newPlant = blockList.iterator().next();
+                            Block newPlant = blockList.getFirst();
 
                             if (Material.PUMPKIN_STEM.equals(block.getType()))
                             {
@@ -167,7 +168,7 @@ public abstract class DancingHandler extends FlagListener
                     this.spawnParticle(block.getLocation());
                 }
             }
-            else if (Tag.TALL_FLOWERS.isTagged(block.getType()))
+            else if (Tag.TALL_FLOWERS.isTagged(block.getType()) || Material.PINK_PETALS.equals(block.getType()))
             {
                 if (growTallFlowers)
                 {
@@ -232,7 +233,7 @@ public abstract class DancingHandler extends FlagListener
                         rootBlock = rootBlock.getRelative(BlockFace.DOWN);
                     }
 
-                    int height = 1;
+                    int height = 0;
 
                     // Get max height based on block data.
                     int maxHeight = Material.CACTUS.equals(block.getType()) ?
@@ -351,6 +352,15 @@ public abstract class DancingHandler extends FlagListener
                     }
                 }
             }
+            else if (Material.SPORE_BLOSSOM.equals(block.getType()))
+            {
+                if (growSporeBlossom)
+                {
+                    // Apply bone meal to spore blossom
+                    block.getDrops().forEach(drop -> block.getWorld().dropItemNaturally(block.getLocation().add(0.5, 0.5, 0.5), drop));
+                    this.spawnParticle(block.getLocation());
+                }
+            }
         }
     }
 
@@ -361,7 +371,7 @@ public abstract class DancingHandler extends FlagListener
      */
     private void spawnParticle(@NotNull Location location)
     {
-        Objects.requireNonNull(location.getWorld()).spawnParticle(Particle.VILLAGER_HAPPY,
+        Objects.requireNonNull(location.getWorld()).spawnParticle(Particle.HAPPY_VILLAGER,
             location.add(0.5, 0.5, 0.5),
             20,
             0.3D,

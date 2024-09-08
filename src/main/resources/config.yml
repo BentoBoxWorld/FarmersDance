@@ -82,7 +82,7 @@ groups:
   # Default value = true.
   grow-vines: true
   #
-  # Toggles if dancing will affect tall flowers.
+  # Toggles if dancing will affect tall flowers and pink petals.
   # It means that tall flowers will drop their item, like using bone meal.
   # Default value = true.
   grow-tall-flowers: true
@@ -105,6 +105,11 @@ groups:
   # Dancing near berries will produce berries.
   # Default value = true.
   grow-berries: true
+  #
+  # Toggles if dancing will affect spore blossoms.
+  # Dancing near spore blossoms will drop new spore blossom.
+  # Default value = true.
+  grow-spore-blossoms: false
 size:
   # The maximal cactus size that it can grow to.
   # Default value = 3.

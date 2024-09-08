@@ -461,6 +461,28 @@ public class Settings implements ConfigObject
 
 
     /**
+     * Is grow spore blossom boolean.
+     *
+     * @return the boolean
+     */
+    public boolean isGrowSporeBlossom()
+    {
+        return this.growSporeBlossom;
+    }
+
+
+    /**
+     * Sets grow spore blossom.
+     *
+     * @param growSporeBlossom the grow spore blossom
+     */
+    public void setGrowSporeBlossom(boolean growSporeBlossom)
+    {
+        this.growSporeBlossom = growSporeBlossom;
+    }
+
+
+    /**
      * Gets maximal cactus size.
      *
      * @return the maximal cactus size
@@ -614,7 +636,7 @@ public class Settings implements ConfigObject
     private boolean growVines = true;
 
     @ConfigComment("")
-    @ConfigComment("Toggles if dancing will affect tall flowers.")
+    @ConfigComment("Toggles if dancing will affect tall flowers and pink petals.")
     @ConfigComment("It means that tall flowers will drop their item, like using bone meal.")
     @ConfigComment("Default value = true.")
     @ConfigEntry(path = "groups.grow-tall-flowers")
@@ -648,6 +670,13 @@ public class Settings implements ConfigObject
     private boolean growBerries = true;
 
     @ConfigComment("")
+    @ConfigComment("Toggles if dancing will affect spore blossoms.")
+    @ConfigComment("Dancing near spore blossoms will drop new spore blossom.")
+    @ConfigComment("Default value = false.")
+    @ConfigEntry(path = "groups.spore-blossoms")
+    private boolean growSporeBlossom = true;
+
+    @ConfigComment("")
     @ConfigComment("The maximal cactus size that it can grow to.")
     @ConfigComment("Default value = 3.")
     @ConfigEntry(path = "size.cactus-size")
@@ -657,5 +686,5 @@ public class Settings implements ConfigObject
     @ConfigComment("The maximal sugar cane size that it can grow to.")
     @ConfigComment("Default value = 3.")
     @ConfigEntry(path = "size.sugar-cane-size")
-    private int maximalSugarCaneSize;
+    private int maximalSugarCaneSize = 3;
 }

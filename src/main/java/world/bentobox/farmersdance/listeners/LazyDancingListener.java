@@ -15,6 +15,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.scheduler.BukkitTask;
 
+import org.jetbrains.annotations.NotNull;
 import world.bentobox.bentobox.util.Util;
 import world.bentobox.farmersdance.FarmersDanceAddon;
 
@@ -40,7 +41,7 @@ public class LazyDancingListener extends DancingHandler implements Listener
      * @param event Player Toggle Sneak Event.
      */
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
-    public void onDancing(PlayerToggleSneakEvent event)
+    public void onDancing(@NotNull PlayerToggleSneakEvent event)
     {
         Player player = event.getPlayer();
         World world = player.getWorld();

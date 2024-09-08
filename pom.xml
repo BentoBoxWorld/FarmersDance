@@ -46,16 +46,16 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>17</java.version>
-        <powermock.version>1.7.4</powermock.version>
+        <java.version>21</java.version>
+        <powermock.version>2.0.9</powermock.version>
         <!-- More visible way how to change dependency versions -->
-        <spigot.version>1.19-R0.1-SNAPSHOT</spigot.version>
+        <spigot.version>1.21.1-R0.1-SNAPSHOT</spigot.version>
         <!-- BentoBox API version -->
         <bentobox.version>1.20.0</bentobox.version>
         <!-- Revision variable removes warning about dynamic version -->
         <revision>${build.version}-SNAPSHOT</revision>
         <!-- This allows to change between versions and snapshots. -->
-        <build.version>1.0.0</build.version>
+        <build.version>1.1.0</build.version>
         <build.number>-LOCAL</build.number>
     </properties>
 
@@ -94,7 +94,7 @@
                 <!-- Override only if necessary -->
                 <revision>${build.version}</revision>
                 <!-- Empties build.number value -->
-                <build.number></build.number>
+                <build.number/>
             </properties>
         </profile>
         <profile>
@@ -108,7 +108,7 @@
                     <plugin>
                         <groupId>org.sonarsource.scanner.maven</groupId>
                         <artifactId>sonar-maven-plugin</artifactId>
-                        <version>3.6.0.1398</version>
+                        <version>4.0.0.4121</version>
                         <executions>
                             <execution>
                                 <phase>verify</phase>
@@ -154,7 +154,7 @@
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>22.0.0</version>
+            <version>24.1.0</version>
         </dependency>
     </dependencies>
 
@@ -191,12 +191,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.3.1</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.13.0</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -205,17 +205,17 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.0</version>
+                <version>3.5.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.4.2</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>3.10.0</version>
                 <configuration>
                     <show>public</show>
                     <failOnError>false</failOnError>
@@ -233,7 +233,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>3.3.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -246,12 +246,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
-                <version>2.5.2</version>
+                <version>3.1.3</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.3.1-SNAPSHOT</version>
+                <version>3.6.0</version>
                 <configuration>
                     <minimizeJar>true</minimizeJar>
                     <artifactSet>
@@ -282,12 +282,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.8.2</version>
+                <version>3.1.3</version>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.10</version>
+                <version>0.8.12</version>
                 <configuration>
                     <append>true</append>
                     <excludes>
