@@ -19,9 +19,9 @@ public class FarmersDancePladdon extends Pladdon
     @Override
     public Addon getAddon()
     {
-        if (addon != null) {
+        if (addon == null) {
             addon = new FarmersDanceAddon();
         }
-        return new FarmersDanceAddon();
+        return addon;
     }
 }
