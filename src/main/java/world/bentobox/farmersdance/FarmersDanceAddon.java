@@ -8,7 +8,6 @@ package world.bentobox.farmersdance;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.event.Listener;
 
 import world.bentobox.bentobox.api.addons.Addon;
 import world.bentobox.bentobox.api.configuration.Config;
@@ -74,12 +73,12 @@ public class FarmersDanceAddon extends Addon
         if (this.settings.isLazyDancing())
         {
             this.dancingHandler = new LazyDancingListener(this);
-            this.registerListener((Listener) this.dancingHandler);
+            this.registerListener(this.dancingHandler);
         }
         else
         {
             this.dancingHandler = new FastDancingListener(this);
-            this.registerListener((Listener) this.dancingHandler);
+            this.registerListener(this.dancingHandler);
         }
     }
 
@@ -126,7 +125,9 @@ public class FarmersDanceAddon extends Addon
     public void onDisable()
     {
         // Stop all running tasks.
-        this.dancingHandler.stopTasks();
+        if (this.dancingHandler != null) {
+            this.dancingHandler.stopTasks();
+        }
     }
 
 
