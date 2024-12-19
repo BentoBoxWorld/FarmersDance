@@ -16,9 +16,3 @@ The main idea of the addon is to allow faster grow any plant on your island.
 The main difference from TwerkingForTrees is that this addon should work on any growable plant, including cactus, pumpkin and mushrooms.
 
 More information you can find in addon Wiki Page: [Farmers Dance Addon](https://docs.bentobox.world/en/latest/addons/FarmersDance/)
-
-This addon is still in ALPHA. This is just an early preview.
-
-## Compatibility
-
-- [x] BentoBox 1.20.0+
