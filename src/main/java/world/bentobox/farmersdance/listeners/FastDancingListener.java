@@ -89,7 +89,8 @@ public class FastDancingListener extends DancingHandler implements Listener
 
         if (!this.checkIsland(event, player, player.getLocation(), FarmersDanceAddon.FARMER_DANCE, true))
         {
-            // Player is not allowed to dance on this island.
+            // Player is not allowed to dance on this island, but do not cancel the event
+            event.setCancelled(false);
             return;
         }
 
