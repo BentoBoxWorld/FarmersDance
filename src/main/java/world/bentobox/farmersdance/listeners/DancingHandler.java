@@ -168,7 +168,7 @@ public abstract class DancingHandler extends FlagListener
                     this.spawnParticle(block.getLocation());
                 }
             }
-            else if (Tag.TALL_FLOWERS.isTagged(block.getType()) || Material.PINK_PETALS.equals(block.getType()))
+            else if (Tag.FLOWERS.isTagged(block.getType()) || Material.PINK_PETALS.equals(block.getType()))
             {
                 if (growTallFlowers)
                 {
@@ -198,6 +198,9 @@ public abstract class DancingHandler extends FlagListener
                         {
                             block.applyBoneMeal(BlockFace.UP);
                             this.spawnParticle(block.getLocation());
+                        }
+                        default -> {
+                            // Ignore others
                         }
                     }
                 }
