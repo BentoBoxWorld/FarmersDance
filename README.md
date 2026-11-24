@@ -1,4 +1,8 @@
 # 🕺 Farmer’s Dance Addon for BentoBox
+
+<!-- BentoBox stats badges: https://download.bentobox.world/admin (Badges tab) -->
+[![Servers](https://download.bentobox.world/badge/FarmersDance/servers.svg)](https://download.bentobox.world/) [![Downloads](https://download.bentobox.world/badge/FarmersDance/downloads.svg)](https://download.bentobox.world/) [![Minecraft](https://download.bentobox.world/badge/FarmersDance/mc.svg)](https://download.bentobox.world/)
+
 [![Discord](https://img.shields.io/discord/272499714048524288.svg?logo=discord)](https://discord.bentobox.world)
 [![Build Status](https://ci.codemc.io/buildStatus/icon?job=BentoBoxWorld/TwerkingPlants)](https://ci.codemc.io/job/BentoBoxWorld/job/FarmersDance/)
 
